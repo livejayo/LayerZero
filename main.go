@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-// A simple struct to hold our metrics
+// A struct to hold our metrics
 type NodeStatus struct {
 	BlockHeight string `json:"blockHeight"`
 	ChainID     string `json:"chainID"`
