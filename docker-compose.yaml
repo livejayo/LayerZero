@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  goat-node:
+    image: ghcr.io/goat-labs/goat:latest
+    container_name: goat-node
+    ports:
+      - "8545:8545"
+
+  goat-monitor:
+    build: .
+    container_name: goat-monitor
+    ports:
+      - "8080:8080"
+    environment:
+      # This tells our monitor to talk to the goat-node service.
+      - GOAT_RPC_NODE=http://goat-node:8545
+    depends_on:
+      - goat-node
